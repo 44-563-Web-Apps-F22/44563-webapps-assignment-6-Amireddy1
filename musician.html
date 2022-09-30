@@ -6,7 +6,38 @@
 
 <h2>Musician guess by Shruthi Amireddy</h2>
 
+<form>
+    <label for="form1_nick">Enter the secret musician name</label>
+    <input type ="password" id="secret_name" name="form1_nick" value="John Lennon"> <br>
 
+    <label for="form1_nick">Guess the musician </label>
+    <input type ="text" id="musician_name" name="form1_nick"> <br>
+
+    <input type="button" onclick="checkGuess()" value="Check the guess">
+    <p id="result"></p>
+</form>
+
+<script> 
+
+    correct = 0;
+    wrong = 0;
+
+    function checkGuess (){
+        
+        secret_name = document.getElementById("secret_name").value
+        guess_name = document.getElementById("musician_name").value
+
+        if(secret_name == guess_name){
+            correct = correct + 1;
+            alert("You got it right!!")
+        }else{
+            wrong = wrong + 1;
+            alert("Wrong Musician");
+        }
+      
+        document.getElementById("result").innerHTML = "Correct count = "+ correct + " \nWrong Count = "+ wrong;
+    }
+    </script>
 
 </body>
 </html> 
