@@ -17,6 +17,10 @@
     <p id="result"></p>
 </form>
 
+<div>
+    <img id="IMAGE" src="Ant.jpg" onclick="swapimage();">
+</div>
+
 <script> 
 
     correct = 0;
@@ -36,16 +40,36 @@
         }
       
         document.getElementById("result").innerHTML = "Correct count = "+ correct + " \nWrong Count = "+ wrong;
+
+
+        function swapImage() {
+
+switch(Image) {
+
+    case 1: document.getElementById("Image").src="Ant.jpg";
+
+    Image=1;
+
+            break;
+
+    case 2 : document.getElementById("Image").src="Mayflies.jpg";
+
+    Image=2;
+
+                break;
+
+    case 3 :  document.getElementById("Image").src="Inchworm.jpg";
+
+    Image=3;
+
+                break;      
+
+}    
+}
     }
     </script>
 
-<div class="container"> 
-    <div class = "row">
-        <div class="col-sm-2">A</div>
-</div>
-<div class = "row">
-    <div class="col-md">Ant</div>
-</div>
+
        
 
 </body>
