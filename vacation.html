@@ -5,33 +5,41 @@
     <title>Vacation page</title>
 
 <h2>Shruthi selects a vacation</h2>
+
+<div class="container">
 <form>
     <form>
-        <input type="checkbox" id="cb1_air" name="topping1"   
+        <input type="checkbox" id="air" name="topping1"   
           value="True">
         <label for="cb1_cheese">Travel by Air</label></br>
       
-        <input type="checkbox" id="cb1_dom" name="topping1" 
+        <input type="checkbox" id="domestic" name="topping1" 
            value="True">
         <label for="cb1_olive">Domestic</label></br>
       
-        <input type="checkbox" id="cb1_res" name="topping1"   
+        <input type="checkbox" id="resort" name="topping1"   
            value="False" >
         <label for="cb1_onion">Resort</label></br>
 
-        <button onclick="selectVacation(); return false;">Select a Vacation</button>
-            <p id="result"></p>
+        <input type="button" onclick="selectVacatio()" value="Select a Vacation">
+
+        <p id="result trvaelled by"></p>
+            
       </form>
+      
       <br>
       <form>
         <label for="city">Enter a city</label>
-        <input type="text" id="city" name="city" value="city"> <br>
+        <input type="text" id="city" name="city"> <br>
         
         <label for="city">Enter price</label>
         <input type="text" id="price" name="price"> <br>
     
         <input type="button" class="btn btn-success" value="Update the vacation" onclick="updateVacation()">
+
+        <p id="result of cities"> </p>
     </form>
+</div>
       
 </form>
 <script>
@@ -39,9 +47,9 @@ var my_vacation={};
     function selectVacation()
     {
         my_vacation={};
-        airtravel=document.getElementById("air").checked
-        domestictravel=document.getElementById("domestic").checked
-        resorttravel=document.getElementById("resort").checked
+        let airtravel=document.getElementById("air").checked
+        let domestictravel=document.getElementById("domestic").checked
+        let resorttravel=document.getElementById("resort").checked
     
         if(airtravel)
         {
@@ -59,7 +67,7 @@ var my_vacation={};
         {
             my_vacation.domestic=false;
         }
-        if(resorttravel)
+        if(resort)
         {
             my_vacation.resort=true;
         }
@@ -74,12 +82,12 @@ var my_vacation={};
     
     function updateVacation()
     {
-        let city=document.getElementById("city").value;
-        let price=document.getElementById("price").value;
+        city=document.getElementById("city").value;
+        price=document.getElementById("price").value;
         my_vacation["city"]=city;
         my_vacation["price"]=price;
     
-        document.getElementById("result").innerHTML=JSON.stringify(my_vacation)
+        document.getElementById("result of cities").innerHTML=JSON.stringify(my_vacation)
     }
     
 
