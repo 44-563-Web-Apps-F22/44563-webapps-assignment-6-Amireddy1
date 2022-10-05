@@ -18,14 +18,14 @@
 </form>
 
 <div>
-    <img id="IMAGE" src="Ant.jpg" onclick="swapimage();">
+    <img id="imgInsect" src="Inchworm.jpg" onclick="swapImage();">
 </div>
 
 <script> 
 
     correct = 0;
     wrong = 0;
-
+var useImage=1;
     function checkGuess (){
         
         secret_name = document.getElementById("secret_name").value
@@ -41,31 +41,31 @@
       
         document.getElementById("result").innerHTML = "Correct count = "+ correct + " \nWrong Count = "+ wrong;
 
+    }
+function swapImage() {
 
-        function swapImage() {
+switch(useImage) {
 
-switch(Image) {
+    case 1: document.getElementById("imgInsect").src="Ant.jpg";
 
-    case 1: document.getElementById("Image").src="Ant.jpg";
-
-    Image=1;
+    useImage=2;
 
             break;
 
-    case 2 : document.getElementById("Image").src="Mayflies.jpg";
+        case 2 : document.getElementById("imgInsect").src="Mayflies.jpg";
 
-    Image=2;
+        useImage=3;
 
                 break;
 
-    case 3 :  document.getElementById("Image").src="Inchworm.jpg";
+        case 3 :  document.getElementById("imgInsect").src="Inchworm.jpg";
 
-    Image=3;
+        useImage=1;
 
                 break;      
 
-}    
-}
+    }    
+
     }
     </script>
 
