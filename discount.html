@@ -7,8 +7,8 @@
 <h2>Shruthi computes discounts</h2>
 
 <form>
-    <label for="form1_nick">Enter base amount </label>
-    <input type ="number" id="amount of_product" name="form1_nick" value=20> <br>
+    <label for="form1_nick">Enter base amount </label> 
+    <input type ="number" id="input_amount" name="form1_nick" value=20> <br>
 
     <label for="form1_nick">Enter the discount percentage </label>
     <input type ="number" id="discount_percentage" name="form1_nick" value="10"> <br>
@@ -20,22 +20,21 @@
 </form>
 
 
-<p id="result">This text will be replaced </p>
 
 <script> 
 
-function resolveForm (){
-    console.log("Getting form values")
-    age = document.getElementById("form1_age").value
-    nick = document.getElementById("form1_nick").value
-    confirmed = confirm("Are these the values? "+age+" and "+nick)
-    
-    out = document.getElementById("result")
-    if(confirmed){
-        out.innerHTML = "Values were confirmed"
-    } else {
-        out.innerHTML = "Values were not confirmed"
+function discount(){
+   
+    input_amount = document.getElementById("input_amount").value
+    discount_percentage = document.getElementById("discount_percentage").value
+    let result="";
+    for(i=1; i<=5; i++) {
+      let calAmount = i*input_amount-(i*input_amount*(discount_percentage/100));
+      result=result+calAmount+" ";
     }
+    document.getElementById("result").innerHTML="Discounted amounts for base "+input_amount+" are "+result+" (discount was "+discount_percentage+")";
+    
+   
 }
 </script>
 
