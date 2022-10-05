@@ -22,39 +22,66 @@
         <button onclick="selectVacation(); return false;">Select a Vacation</button>
             <p id="result"></p>
       </form>
+      <br>
+      <form>
+        <label for="city">Enter a city</label>
+        <input type="text" id="city" name="city" value="city"> <br>
+        
+        <label for="city">Enter price</label>
+        <input type="text" id="price" name="price"> <br>
+    
+        <input type="button" class="btn btn-success" value="Update the vacation" onclick="updateVacation()">
+    </form>
       
 </form>
 <script>
-
-function selectVacation() {
-    my_vacation={};
-    my_vacation={"air": document.getElementById("cb1_air").checked, "domestic":document.getElementById("cb1_dom").checked,"resort":document.getElementById("cb1_res").checked};
-document.getElementById("result").innerHTML=JACK.stringify(my_vacation);
-}
-
-
-
-function resolveForm (){
-    console.log("Getting form values")
-    age = document.getElementById("form1_age").value
-    nick = document.getElementById("form1_nick").value
-    confirmed = confirm("Are these the values? "+age+" and "+nick)
+var my_vacation={};
+    function selectVacation()
+    {
+        my_vacation={};
+        airtravel=document.getElementById("air").checked
+        domestictravel=document.getElementById("domestic").checked
+        resorttravel=document.getElementById("resort").checked
     
-    out = document.getElementById("result")
-    if(confirmed){
-        out.innerHTML = "Values were confirmed"
-    } else {
-        out.innerHTML = "Values were not confirmed"
+        if(airtravel)
+        {
+            my_vacation.air=true;
+        }
+        else
+        {
+            my_vacation.air=false;
+        }
+        if(domestictravel)
+        {
+            my_vacation.domestic=true;
+        }
+        else
+        {
+            my_vacation.domestic=false;
+        }
+        if(resorttravel)
+        {
+            my_vacation.resort=true;
+        }
+        else
+        {
+            my_vacation.resort=false;
+        }
+        
+    
+        document.getElementById("result").innerHTML=JSON.stringify(my_vacation)
     }
-}
-
-
-
-
-
-
-
-
+    
+    function updateVacation()
+    {
+        let city=document.getElementById("city").value;
+        let price=document.getElementById("price").value;
+        my_vacation["city"]=city;
+        my_vacation["price"]=price;
+    
+        document.getElementById("result").innerHTML=JSON.stringify(my_vacation)
+    }
+    
 
 </script>  
 
