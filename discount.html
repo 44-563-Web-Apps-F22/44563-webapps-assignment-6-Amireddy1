@@ -14,14 +14,44 @@
     <input type ="number" id="discount_percentage" name="form1_nick" value="10"> <br>
 
     <input type="button" onclick="discount()" value="Apply discount">
-    <p id="result"></p>
-
+    <p id="resultAfterDiscount"></p>
     
 </form>
+
+<form>
+    <input type="radio" id="rg1_orange" name="discount" value="times"   
+      onclick="chooseOp();">
+    <label for="rg1_orange">*</label></br>
+  
+    <input type="radio" id="rg1_green" name="discount" 
+       value="divide" onclick="chooseOp();">
+    <label for="rg1_green">/</label></br>
+  
+    <input type="radio" id="rg1_yellow" name="discount"   
+       value="exponent" onclick="chooseOp();">
+    <label for="rg1_yellow">**</label></br>
+
+    <p id="resultAfterOperation"></p>
+
+  </form>
 
 
 
 <script> 
+
+function resolveForm (){
+    console.log("Getting form values")
+    age = document.getElementById("form1_age").value
+    nick = document.getElementById("form1_nick").value
+    confirmed = confirm("Are these the values? "+age+" and "+nick)
+    
+    out = document.getElementById("result")
+    if(confirmed){
+        out.innerHTML = "confirmed value"
+    } else {
+        out.innerHTML = "Values are confirmed"
+    }
+}
 
 function discount(){
    
@@ -29,12 +59,35 @@ function discount(){
     discount_percentage = document.getElementById("discount_percentage").value
     let result="";
     for(i=1; i<=5; i++) {
-      let calAmount = i*input_amount-(i*input_amount*(discount_percentage/100));
+      calAmount = i*input_amount-(i*input_amount*(discount_percentage/100));
       result=result+calAmount+" ";
     }
-    document.getElementById("result").innerHTML="Discounted amounts for base "+input_amount+" are "+result+" (discount was "+discount_percentage+")";
+    document.getElementById("resultAfterDiscount").innerHTML="Discounted amounts for base "+input_amount+" are "+result+" (discount was "+discount_percentage+")";
     
    
+}
+
+function chooseOp() {
+    input_amount = document.getElementById("input_amount").value;
+    discount_percentage = document.getElementById("discount_percentage").value;
+    result=" ";
+    times = document.getElementById("rg1_orange").checked
+    divide = document.getElementById("rg1_green").checked
+    exponent = document.getElementById("rg1_yellow").checked
+
+   
+    confirm;
+    if(times) {
+        document.getElementById("resultAfterOperation").innerHTML="Value is "+input_amount*discount_percentage;
+    }
+    else if(divide) {
+        confirm ="/"; 
+        document.getElementById("resultAfterOperation").innerHTML="Value is "+input_amount/discount_percentage;   
+    }
+    else {
+        document.getElementById("resultAfterOperation").innerHTML="Value is "+input_amount**discount_percentage;
+    }
+
 }
 </script>
 
