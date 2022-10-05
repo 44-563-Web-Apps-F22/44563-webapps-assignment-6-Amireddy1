@@ -7,13 +7,16 @@
 <h2>Shruthi computes discounts</h2>
 
 <form>
-    <label for="form1_age">What is your age </label>
-    <input type ="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30> <br>
+    <label for="form1_nick">Enter base amount </label>
+    <input type ="number" id="amount of_product" name="form1_nick" value=20> <br>
 
-    <label for="form1_nick">What is your nickname </label>
-    <input type ="text" id="form1_nick" name="form1_nick" autofocus> <br>
+    <label for="form1_nick">Enter the discount percentage </label>
+    <input type ="number" id="discount_percentage" name="form1_nick" value="10"> <br>
 
-    <input type="button" onclick="resolveForm()" value="Get values from form">
+    <input type="button" onclick="discount()" value="Apply discount">
+    <p id="result"></p>
+
+    
 </form>
 
 
