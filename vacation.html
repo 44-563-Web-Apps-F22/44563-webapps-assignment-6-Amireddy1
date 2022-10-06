@@ -21,7 +21,7 @@
            value="False" >
         <label for="cb1_onion">Resort</label></br>
 
-        <input type="button" onclick="selectVacatio()" value="Select a Vacation">
+        <input type="button" onclick="selectVacation()" value="Select a Vacation">
 
         <p id="result trvaelled by"></p>
             
@@ -77,7 +77,7 @@ var my_vacation={};
         }
         
     
-        document.getElementById("result").innerHTML=JSON.stringify(my_vacation)
+        document.getElementById("result trvaelled by").innerHTML=JSON.stringify(my_vacation)
     }
     
     function updateVacation()
